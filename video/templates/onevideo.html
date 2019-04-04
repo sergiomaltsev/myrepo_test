@@ -1,0 +1,31 @@
+{% extends 'main_template.html' %}
+
+{% block onevideo %}
+    <iframe width="853" height="480" src="{{ video.url }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    <form action="/hello/form/" method="get">
+        {% csrf_token %}
+        <br>
+
+        <input type="hidden" value="{{ video.slug }}" name="slug">
+
+        <label for="logi">Login</label>
+        <input type="text" id="login" name="login" placeholder="введи логин">
+
+        <br>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="введи пароль">
+
+        <input type="submit" value="submit">
+    </form>
+    <div id="comments"></div>
+
+        <input id="slug"  type="hidden" value="{{ video.slug }}" name="slug">
+
+        <div class="form-group">
+            <label for="comment">Comment:</label>
+            <textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
+        </div>
+
+        <input type="submit" id="comment" value="submit">
+{% endblock %}

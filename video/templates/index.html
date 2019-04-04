@@ -1,0 +1,7 @@
+<h1>hello world {{ name }}</h1>
+
+{% for n in names %}
+	{% if n.0 != 'A' %}
+		<i>{{ n }}</i>
+	{% endif %}
+{% endfor %}
